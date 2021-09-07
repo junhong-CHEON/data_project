@@ -118,7 +118,7 @@ class Predict(Resource):
                 '세대수당주차대수'])
             print(x_train_set)
             scaler = StandardScaler()
-            std_x_test = DataFrame(scaler.transform(x_train_set), columns=x_train_set.columns)
+            std_x_test = DataFrame(scaler.fit_transform(x_train_set), columns=x_train_set.columns)
             print(std_x_test)
 
 
