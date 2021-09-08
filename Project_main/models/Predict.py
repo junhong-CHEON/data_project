@@ -124,3 +124,40 @@ class Predict(db.Model, SerializerMixin):
         self.역과의거리_km = 역과의거리_km
         self.호선 = 호선
         self.역 = 역
+
+class Standard_scale_table(db.Model, SerializerMixin):
+    __tablename__ = 'Standard_scale'
+    index = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    아파트명 = db.Column(db.String, nullable=False)
+    세대수 = db.Column(db.Float, nullable=False)
+    초과세대수_135 = db.Column(db.Float, nullable=False)
+    CCTV대수 = db.Column(db.Float, nullable=False)
+    부대_복리시설 = db.Column(db.Float, nullable=False)
+    인접초등학교수 = db.Column(db.Float, nullable=False)
+    전용면적_제곱미터 = db.Column(db.Float, nullable=False)
+    주거전용면적 = db.Column(db.Float, nullable=False)
+    층 = db.Column(db.Float, nullable=False)
+    건축년도 = db.Column(db.Float, nullable=False)
+    역과의거리_km = db.Column(db.Float, nullable=False)
+    세대수당주차대수 = db.Column(db.Float, nullable=False)
+    대형평수세대비율 = db.Column(db.Float, nullable=True)
+    세대당CCTV대수 = db.Column(db.Float, nullable=False)
+    
+    def __init__(self, index, 아파트명, 세대수, 초과세대수_135, CCTV대수,주거전용면적, 부대_복리시설, 인접초등학교수,
+                전용면적_제곱미터, 층, 건축년도, 역과의거리_km, 세대수당주차대수, 대형평수세대비율, 세대당CCTV대수):
+        self.index = index
+        self.아파트명 = 아파트명
+        self.세대수 = 세대수
+        self.초과세대수_135 = 초과세대수_135
+        self.CCTV대수 = CCTV대수
+        self.부대_복리시설 = 부대_복리시설
+        self.인접초등학교수 = 인접초등학교수
+        self.전용면적_제곱미터 = 전용면적_제곱미터
+        self.세대수당주차대수 = 세대수당주차대수
+        self.층 = 층
+        self.건축년도 = 건축년도
+        self.대형평수세대비율 = 대형평수세대비율
+        self.세대당CCTV대수 = 세대당CCTV대수
+        self.역과의거리_km = 역과의거리_km
+        self.주거전용면적 = 주거전용면적
+
