@@ -74,4 +74,32 @@ class Predict(Resource):
                 value = value + yhat[i][0]
             value = value/len(yhat)
             value = value_1 + ' ' + value_2 + '의 예상가격: ㎡당' + str(round(value,4)).replace('.','만') + '원 입니다.'
-            return Response(render_template('index.html', value = value))
+
+            rs2 = None
+            
+            try:
+                rs2 = predictModel.query.filter(predictModel.명칭_단지코드.like(search)).all()
+            except Exception as e:
+                return {'rt': replace_quotes(str(e)), 'pubDate':get_now_string()}, 500
+            
+            for i,v in enumerate(rs2):
+                rs2[i] = v.to_dict()
+            
+            df2 = DataFrame(rs2)
+            df2_copy = df2.copy()
+
+            #실거래가 chart.js 필요한 변수
+            x_df1 = df2_copy.filter(["전용면적_제곱미터","거래금액_만원"])
+            x_df1=x_df1.sort_values(by=["전용면적_제곱미터"])
+            x_df1 = x_df1.reset_index(drop=True)
+ 
+            x_value = []
+            y_value = []
+            for i in range(0,len(x_df1)):
+                x_value.append(x_df1["전용면적_제곱미터"][i])
+                y_value.append(x_df1["거래금액_만원"][i])     
+
+
+                
+
+            return Response(render_template('indexpost.html', value = value, x_value = x_value, y_value=y_value, search=search ))
