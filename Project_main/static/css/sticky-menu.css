@@ -97,3 +97,13 @@ input[type="text"]:focus {
 .navbar-default .navbar-nav > li > a {
   color: #000;
 }
+
+/*아파트 단지테이블 */
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-xwr1{background-color:#c0c0c0;border-color:#9b9b9b;font-size:22px;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-rn9u{background-color:#c0c0c0;border-color:#9b9b9b;font-size:20px;text-align:left;vertical-align:top}
+.tg .tg-sqex{border-color:#9b9b9b;font-size:22px;font-weight:bold;text-align:center;vertical-align:top}
