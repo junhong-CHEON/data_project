@@ -101,7 +101,7 @@ class Predict(Resource):
 
             #아파트정보 필요한 변수
             ta_df1 = df2.copy()
-            ta_df1 = ta_df1.filter(["단지명","도로명","면적별_세대현황","사용승인일","동수_세대수","연면적","주거전용면적","주차대수","CCTV대수"])
+            ta_df1 = ta_df1.filter(["단지명","도로명","면적별_세대현황","사용승인일","동수_세대수","연면적","주거전용면적","주차대수","CCTV대수","위도","경도"])
             ta1 = ta_df1["단지명"][0]
             ta2 = ta_df1["도로명"][0]
             ta3 = ta_df1["면적별_세대현황"][0]
@@ -111,7 +111,9 @@ class Predict(Resource):
             ta7 = ta_df1["주거전용면적"][0]
             ta8 = ta_df1["주차대수"][0]
             ta9 = ta_df1["CCTV대수"][0]
+            map_1 = "%f" % ta_df1["위도"][0]
+            map_2 = "%f" % ta_df1["경도"][0]
              
 
             return Response(render_template('indexpost.html', value = value, x_value = x_value, y_value=y_value, search=search,
-             ta1=ta1, ta2=ta2, ta3=ta3, ta4=ta4, ta5=ta5, ta6=ta6, ta7=ta7, ta8=ta8, ta9=ta9,))
+             ta1=ta1, ta2=ta2, ta3=ta3, ta4=ta4, ta5=ta5, ta6=ta6, ta7=ta7, ta8=ta8, ta9=ta9, map_1=map_1, map_2=map_2))
